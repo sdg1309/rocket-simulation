@@ -45,7 +45,7 @@ int main() {
     // Create a file
     FILE *fpt;
     fpt = fopen("2D_Simulation.csv", "w+");
-    fprintf(fpt, "time, fuel, x, y, velocity_x, velocity_y, acceleration_x, acceleration_y, gravChange\n");
+    fprintf(fpt, "time, fuel, x, y, velocity_x, velocity_y, velocity,acceleration_x, acceleration_y, gravChange\n");
 
     // Initial conditions
     float mass = 198400; // kg
@@ -98,13 +98,14 @@ int main() {
         // Update velocity
         velocity_x += acceleration_x * timeStep;
         velocity_y += acceleration_y * timeStep;
+        velocity = (velocity_x*velocity_x)+(velocity_y*velocity_y)
 
         // Update position
         x += velocity_x * timeStep;
         y += velocity_y * timeStep;
 
 
-        fprintf(fpt, "%.1f, %.1f , %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n", t, fuelMass, x, y, velocity_x, velocity_y, acceleration_x, acceleration_y, grav);
+        fprintf(fpt, "%.1f, %.1f , %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n", t, fuelMass, x, y, velocity_x, velocity_y, velocity,acceleration_x, acceleration_y, grav);
     }
 
     fclose(fpt);
