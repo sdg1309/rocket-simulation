@@ -98,7 +98,6 @@ int main() {
         // Update velocity
         velocity_x += acceleration_x * timeStep;
         velocity_y += acceleration_y * timeStep;
-        velocity = (velocity_x*velocity_x)+(velocity_y*velocity_y)
 
         // Update position
         x += velocity_x * timeStep;
